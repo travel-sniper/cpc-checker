@@ -1,0 +1,35 @@
+<div class="container center">
+    <div class="vertical-middle subscribe-widget" data-loader="button">
+        <div class="heading-block nobottomborder bottommargin-sm">
+            <h1>CPC Checker</h1>
+            <span style="font-size:20px;" class="notopmargin">Paste your CPC URL into the field below</span>
+        </div>
+        <div class="widget-subscribe-form-result"></div>
+        <form id="urlSubmitForm" method="POST" class="nobottommargin divcenter" style="max-width: 500px;">
+            <input type="url" name="url" class="form-control form-control-lg not-dark bottommargin-sm required" placeholder="Enter URL">
+
+        </form>
+        <button type="submit" id="urlFormSubmit" class="button button-border button-light button-circle">Search Now</button>
+        <script>
+            $('#urlFormSubmit').click(function() {
+                $.ajax({
+                    type: 'POST',
+                    headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                    data: $('urlSubmitForm').serialize(),
+                    dataType: 'text',
+                    url: '{% url 'get_cpc_costs' %}',
+                    cache:false,
+                    beforeSend: function() {
+                        console.log('before');
+                    },
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function(){
+
+                    },
+                });
+            });
+        </script>
+    </div>
+</div>
