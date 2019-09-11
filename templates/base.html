@@ -173,9 +173,9 @@
 								<span style="font-size:20px;" class="notopmargin">Paste your CPC URL into the field below</span>
 							</div>
 							<div class="widget-subscribe-form-result"></div>
-							<form id="slider-subscribe-form" action="../include/subscribe.php" method="post" class="nobottommargin divcenter" style="max-width: 500px;">
-								<input type="email" name="widget-subscribe-form-email" class="form-control form-control-lg not-dark bottommargin-sm required" placeholder="Enter Email Address">
-								<button type="submit" class="button button-border button-light button-circle" value="submit">Subscribe Now</button>
+							<form action="{% url 'get_cpc_costs' %}" method="POST" class="nobottommargin divcenter" style="max-width: 500px;">
+								<input type="url" name="url" class="form-control form-control-lg not-dark bottommargin-sm required" placeholder="Enter URL">
+								<button type="submit" class="button button-border button-light button-circle" value="submit">Search Now</button>
 							</form>
 						</div>
 					</div>
